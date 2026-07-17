@@ -1,4 +1,40 @@
-{
-  "name": "Project Overgrowth",
-  "version": "0.1"
-}
+[
+  {
+    "type": "text",
+    "name": "goalTitle",
+    "label": "Goal Label",
+    "value": "Saving for"
+  },
+  {
+    "type": "text",
+    "name": "goalName",
+    "label": "Goal Name",
+    "value": "Wacom MovInk Pad Pro 14"
+  },
+  {
+    "type": "number",
+    "name": "goalAmount",
+    "label": "Goal Amount",
+    "value": 1400
+  },
+  {
+    "type": "dropdown",
+    "name": "displayMode",
+    "label": "Progress Display",
+    "value": "percentage",
+    "options": [
+      {
+        "label": "Percentage",
+        "value": "percentage"
+      },
+      {
+        "label": "Money",
+        "value": "money"
+      },
+      {
+        "label": "Both",
+        "value": "both"
+      }
+    ]
+  }
+]
