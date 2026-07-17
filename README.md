@@ -4,7 +4,7 @@ A handcrafted StreamElements goal widget designed for the Twitch channel **00yoo
 
 ## Current Version
 
-🌱 Project Seed v0.1
+🌱 Seedling v0.1
 
 ## Status
 
