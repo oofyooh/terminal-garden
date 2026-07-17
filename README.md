@@ -1,21 +1,32 @@
 # Terminal Garden
 
-A living StreamElements custom goal widget
+A handcrafted StreamElements goal widget designed for the Twitch channel **00yooh**.
 
-A cozy CRT workstation slowly reclaimed by nature.
+## Current Version
 
-## Features
+🌱 Project Seed v0.1
 
-- Persistent Twitch goal tracking
+## Status
+
+🟢 In Development
+
+## Current Sprint
+
+Sprint 1 — Visual Prototype
+
+## Design Goals
+
+- Cozy
+- Nature + Technology
+- CRT Terminal
+- Modular Artwork
+- Reusable for future fundraising goals
+
+## Planned Features
+
+- Persistent goal tracking
+- Animated progress bar
+- Cat and crow mascots
+- StreamElements integration
 - Custom artwork support
-- Crow and cat mascots
-- CRT terminal aesthetic
-- Nature + technology theme
-
-## Development
-
-Currently in early development.
-
-## Creator
-
-00yooh
+- Multiple display modes
