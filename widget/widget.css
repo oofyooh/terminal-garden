@@ -1,2 +1,564 @@
-/* Project Overgrowth */
-/* Main Widget Styles */
+/* ---------------------------------------------------------
+   Terminal Garden — Seedling v0.1
+   Visual foundation
+--------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: #f3f5f7;
+}
+
+:root {
+  --terminal-width: 900px;
+  --terminal-height: 250px;
+
+  --frame-dark: #101214;
+  --frame-mid: #1a1d20;
+  --frame-edge: #42484e;
+
+  --screen-dark: #071012;
+  --screen-mid: #0b171a;
+
+  --text-main: #f2f4f5;
+  --text-muted: #94a0a8;
+  --accent-blue: #75a9ff;
+  --accent-blue-soft: rgba(117, 169, 255, 0.25);
+  --accent-green: #94d6a0;
+
+  --progress: 0%;
+}
+
+.terminal-garden {
+  width: var(--terminal-width);
+  height: var(--terminal-height);
+  padding: 8px;
+}
+
+.terminal-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  border: 3px solid var(--frame-edge);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.05),
+      transparent 22%
+    ),
+    linear-gradient(
+      145deg,
+      var(--frame-mid),
+      var(--frame-dark)
+    );
+
+  box-shadow:
+    0 0 24px var(--accent-blue-soft),
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 0 32px rgba(0, 0, 0, 0.75);
+}
+
+.terminal-header {
+  position: relative;
+  z-index: 5;
+
+  height: 43px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0)
+    ),
+    #151719;
+
+  border-bottom: 1px solid #30353a;
+}
+
+.terminal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-light {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+  background: var(--accent-blue);
+
+  box-shadow:
+    0 0 5px var(--accent-blue),
+    0 0 14px var(--accent-blue);
+}
+
+.terminal-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--text-main);
+}
+
+.terminal-status {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.terminal-screen {
+  position: relative;
+  height: calc(100% - 43px);
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 45% 45%,
+      rgba(117, 169, 255, 0.055),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      var(--screen-mid),
+      var(--screen-dark)
+    );
+
+  box-shadow:
+    inset 0 0 45px rgba(0, 0, 0, 0.72),
+    inset 0 0 8px rgba(117, 169, 255, 0.08);
+}
+
+.goal-panel {
+  position: relative;
+  z-index: 4;
+
+  width: calc(100% - 260px);
+  height: 100%;
+
+  padding: 22px 28px 18px;
+}
+
+.goal-label {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent-green);
+}
+
+.goal-name {
+  margin: 7px 0 0;
+
+  max-width: 100%;
+
+  font-size: 25px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-track {
+  position: relative;
+
+  width: 100%;
+  height: 27px;
+  margin-top: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid #465058;
+  background: rgba(255, 255, 255, 0.035);
+
+  box-shadow:
+    inset 0 0 10px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(117, 169, 255, 0.06);
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+
+  width: var(--progress);
+  min-width: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6298ef 0%,
+      #79b7e6 55%,
+      #94d6a0 100%
+    );
+
+  box-shadow:
+    0 0 12px rgba(117, 169, 255, 0.65),
+    0 0 22px rgba(117, 169, 255, 0.22);
+
+  transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2),
+      transparent 45%,
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+.progress-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 23px,
+      rgba(7, 16, 18, 0.75) 23px,
+      rgba(7, 16, 18, 0.75) 26px
+    );
+
+  pointer-events: none;
+}
+
+.progress-readout {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+
+  margin-top: 10px;
+}
+
+.progress-percent {
+  min-width: 72px;
+
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-main);
+
+  text-shadow: 0 0 9px rgba(117, 169, 255, 0.2);
+}
+
+.progress-money {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.activity-message {
+  margin: 10px 0 0;
+
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #708087;
+}
+
+.mascot-panel {
+  position: absolute;
+  z-index: 4;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 245px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  padding: 0 18px 14px 0;
+}
+
+.cat-mascot {
+  position: relative;
+
+  width: 175px;
+  height: 118px;
+
+  transform-origin: center bottom;
+  animation: cat-breathe 4.8s ease-in-out infinite;
+}
+
+.cat-body {
+  position: absolute;
+
+  right: 16px;
+  bottom: 6px;
+
+  width: 129px;
+  height: 72px;
+
+  border-radius: 58% 48% 42% 52%;
+
+  background:
+    radial-gradient(
+      circle at 72% 32%,
+      #f2f3f4 0 11%,
+      transparent 12%
+    ),
+    linear-gradient(
+      155deg,
+      #151719 0 68%,
+      #f0f1f2 69% 100%
+    );
+
+  border: 2px solid #545a5f;
+
+  box-shadow:
+    inset -10px -8px 18px rgba(0, 0, 0, 0.45),
+    0 5px 10px rgba(0, 0, 0, 0.45);
+}
+
+.cat-head {
+  position: absolute;
+  z-index: 3;
+
+  right: 0;
+  bottom: 40px;
+
+  width: 74px;
+  height: 65px;
+
+  border-radius: 48% 48% 45% 45%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #121416 0 54%,
+      #f1f2f2 55% 100%
+    );
+
+  border: 2px solid #565c61;
+
+  box-shadow:
+    inset -5px -5px 9px rgba(0, 0, 0, 0.25),
+    0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.cat-ears {
+  position: absolute;
+  z-index: 2;
+
+  right: 3px;
+  bottom: 91px;
+
+  width: 70px;
+  height: 32px;
+}
+
+.cat-ear {
+  position: absolute;
+  bottom: 0;
+
+  width: 29px;
+  height: 32px;
+
+  background: #151719;
+  border: 2px solid #565c61;
+}
+
+.cat-ear-left {
+  left: 2px;
+
+  clip-path: polygon(0 100%, 35% 0, 100% 100%);
+  transform: rotate(-8deg);
+}
+
+.cat-ear-right {
+  right: 2px;
+
+  clip-path: polygon(0 100%, 65% 0, 100% 100%);
+  transform: rotate(8deg);
+}
+
+.cat-eye {
+  position: absolute;
+  top: 27px;
+
+  width: 12px;
+  height: 3px;
+
+  border-radius: 50%;
+  background: #7ea5c7;
+}
+
+.cat-eye-visible {
+  left: 15px;
+}
+
+.cat-eye-patch {
+  right: 15px;
+  background: #1b1d1f;
+}
+
+.cat-nose {
+  position: absolute;
+
+  left: 50%;
+  top: 40px;
+
+  width: 7px;
+  height: 5px;
+
+  border-radius: 50% 50% 60% 60%;
+  background: #8d9095;
+
+  transform: translateX(-50%);
+}
+
+.cat-tail {
+  position: absolute;
+  z-index: 4;
+
+  left: 3px;
+  bottom: 17px;
+
+  width: 92px;
+  height: 28px;
+
+  border: 11px solid #151719;
+  border-left-color: transparent;
+  border-radius: 50%;
+
+  transform: rotate(-8deg);
+  transform-origin: right center;
+
+  filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.5));
+}
+
+.sleep-indicator {
+  position: absolute;
+
+  right: 14px;
+  top: -11px;
+
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  color: #78858c;
+
+  animation: sleep-float 3.6s ease-in-out infinite;
+}
+
+.crt-reflection {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0 18%,
+      rgba(255, 255, 255, 0.025) 25%,
+      transparent 39%
+    );
+
+  pointer-events: none;
+}
+
+.crt-scanlines {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+
+  opacity: 0.5;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  pointer-events: none;
+}
+
+.crt-vignette {
+  position: absolute;
+  z-index: 7;
+  inset: 0;
+
+  box-shadow:
+    inset 0 0 28px rgba(0, 0, 0, 0.72),
+    inset 0 0 80px rgba(0, 0, 0, 0.26);
+
+  pointer-events: none;
+}
+
+@keyframes cat-breathe {
+  0%,
+  100% {
+    transform: scaleY(1) translateY(0);
+  }
+
+  50% {
+    transform: scaleY(1.018) translateY(-1px);
+  }
+}
+
+@keyframes sleep-float {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(3px);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 900px) {
+  .terminal-garden {
+    transform: scale(0.85);
+    transform-origin: top left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
