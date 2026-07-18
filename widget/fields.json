@@ -1,4 +1,102 @@
 {
-  "name": "Project Overgrowth",
-  "version": "0.1"
+  "goalLabel": {
+    "type": "text",
+    "label": "Goal Label",
+    "value": "ACTIVE GOAL",
+    "group": "Goal Settings"
+  },
+  "goalName": {
+    "type": "text",
+    "label": "Goal Name",
+    "value": "Wacom MovInk Pad Pro 14",
+    "group": "Goal Settings"
+  },
+  "goalAmount": {
+    "type": "number",
+    "label": "Goal Amount",
+    "value": 1400,
+    "min": 1,
+    "step": 1,
+    "group": "Goal Settings"
+  },
+  "currencySymbol": {
+    "type": "text",
+    "label": "Currency Symbol",
+    "value": "$",
+    "group": "Goal Settings"
+  },
+  "displayMode": {
+    "type": "dropdown",
+    "label": "Progress Display",
+    "value": "both",
+    "options": {
+      "percentage": "Percentage only",
+      "money": "Money only",
+      "both": "Percentage and money",
+      "hidden": "Hide progress numbers"
+    },
+    "group": "Goal Settings"
+  },
+  "tier1Value": {
+    "type": "number",
+    "label": "Tier 1 / Gift Sub Value",
+    "value": 2.5,
+    "min": 0,
+    "step": 0.01,
+    "group": "Contribution Values"
+  },
+  "tier2Value": {
+    "type": "number",
+    "label": "Tier 2 Sub Value",
+    "value": 5,
+    "min": 0,
+    "step": 0.01,
+    "group": "Contribution Values"
+  },
+  "tier3Value": {
+    "type": "number",
+    "label": "Tier 3 Sub Value",
+    "value": 12.5,
+    "min": 0,
+    "step": 0.01,
+    "group": "Contribution Values"
+  },
+  "bitsPerDollar": {
+    "type": "number",
+    "label": "Bits Equal to $1",
+    "value": 100,
+    "min": 1,
+    "step": 1,
+    "group": "Contribution Values"
+  },
+  "startResetGoal": {
+    "type": "button",
+    "label": "Start a Fresh Goal / Reset to $0",
+    "value": "Start / Reset",
+    "group": "Goal Controls"
+  },
+  "pauseResumeGoal": {
+    "type": "button",
+    "label": "Pause or Resume Contributions",
+    "value": "Pause / Resume",
+    "group": "Goal Controls"
+  },
+  "testContribution": {
+    "type": "button",
+    "label": "Add a $5 Test Contribution",
+    "value": "Test +$5",
+    "group": "Testing"
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "Terminal Garden — Seedling"
+  },
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "00yooh"
+  },
+  "widgetDuration": {
+    "type": "hidden",
+    "value": 0
+  }
 }

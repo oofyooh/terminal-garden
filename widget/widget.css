@@ -546,6 +546,76 @@ body {
   }
 }
 
+.cat-mascot.cat-reacting .cat-tail {
+  animation: cat-tail-swish 1.25s ease-in-out;
+}
+
+.cat-mascot.cat-reacting .cat-ear-left {
+  animation: cat-ear-perk-left 850ms ease-in-out;
+}
+
+.cat-mascot.cat-reacting .cat-ear-right {
+  animation: cat-ear-perk-right 850ms ease-in-out;
+}
+
+.cat-mascot.cat-reacting .sleep-indicator {
+  opacity: 0;
+}
+
+.goal-is-inactive .status-light {
+  background: #687078;
+  box-shadow: none;
+}
+
+.goal-is-inactive .terminal-status {
+  color: #687078;
+}
+
+.goal-is-complete .status-light {
+  background: var(--accent-green);
+
+  box-shadow:
+    0 0 6px var(--accent-green),
+    0 0 18px var(--accent-green);
+}
+
+@keyframes cat-tail-swish {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(-27deg);
+  }
+
+  65% {
+    transform: rotate(13deg);
+  }
+}
+
+@keyframes cat-ear-perk-left {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+
+  45% {
+    transform: rotate(-18deg) translateY(-3px);
+  }
+}
+
+@keyframes cat-ear-perk-right {
+  0%,
+  100% {
+    transform: rotate(8deg);
+  }
+
+  45% {
+    transform: rotate(18deg) translateY(-3px);
+  }
+}
+
 @media (max-width: 900px) {
   .terminal-garden {
     transform: scale(0.85);
